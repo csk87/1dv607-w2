@@ -19,10 +19,11 @@ Class Member {
         $this->memberId = $id;
 
         $this->member = array(
-            "Name" => $this->name,
-            "PersonalNumber" => $this->personalNumber,
-            "ID" => $this->memberId
+            'Name' => $this->name,
+            'PersonalNumber' => $this->personalNumber,
+            'ID' => $this->memberId
         );
+        
 
         //array_push($this->allMembers, $this->member);
         return $this->member;
@@ -42,5 +43,7 @@ Class Member {
         file_put_contents($this->file, "");
         file_put_contents($this->file, $this->allMembers);
     }
+
+
 
 }
