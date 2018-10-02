@@ -1,22 +1,22 @@
 [
     {
-        "Name": "Dummy",
-        "personalNumber": "000000",
-        "ID": "1"
+        "Name": "John Doe",
+        "PersonalNumber": "123456-7890",
+        "Id": 0,
+        "Boats": []
     },
+
     {
-        "Name": "casper",
-        "PersonalNumber": "8711250251",
-        "ID": 1
+      "Name": "Zlatan Ibrahimovic",
+      "PersonalNumber": "19811003",
+      "Id": 1,
+      "Boats": []
     },
+
     {
-        "Name": "casper",
-        "PersonalNumber": "8711250251",
-        "ID": 1
-    },
-    {
-        "Name": "perwqeqw",
-        "PersonalNumber": "4354354",
-        "ID": 1
+      "Name": "Kronprinsessan Victoria",
+      "PersonalNumber": "19770714",
+      "Id": 2,
+      "Boats": []
     }
-]
+] 

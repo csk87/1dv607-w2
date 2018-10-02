@@ -7,15 +7,11 @@ class AddMemberView {
     private static $name = 'AddMemberView::name';
     private static $personalNumber = 'AddMemberView::personalNumber';
     private static $register = 'AddMemberView::register';
+    private static $change = 'AddMemberView::change';
     
     private $memberName = ''; 
     private $memberPersonalNumber = null;
 
-
-    public function __construct() {
-    
-
-    }
 
     public function renderMemberFormHTML() {
         echo '
@@ -31,13 +27,31 @@ class AddMemberView {
         </form>
         ';
     } 
+    public function renderChangeMemberFormHTML() {
+        echo '
+        <h3>Update information<h3>
+        <form method="post"> 
+        <label for="">Name :</label>
+        <input type="text" id="' . self::$name . '" name="' . self::$name . '" value="' . $this->memberName .'" />
+        <br>
+        <label for="">Personal number:</label>
+        <input type="text" id="' . self::$personalNumber . '" name="' . self::$personalNumber . '" value="' . $this->memberPersonalNumber . '" />
+        <br>
+        <input type="submit" name="' . self::$change .'" value="Save" />
+        </form>
+        ';
+    } 
     
    public function clickedButton(){
     if(isset($_POST[self::$register])){
         return true;
     }
    }
-
+   public function changeButtonClicked(){
+    if(isset($_POST[self::$change])){
+        return true;
+    }
+   }
     public function getName() {
         if(isset($_POST[self::$name]))
         return $_POST[self::$name];

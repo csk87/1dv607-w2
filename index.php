@@ -1,23 +1,30 @@
 <?php
-//var_dump($_GET);
-//var_dump($_POST);
+
+//view
 require_once('view/LayoutView.php');
 require_once('view/AddMemberView.php');
-require_once('model/Member.php');
+require_once('view/ListMembersView.php');
+
+//model
+require_once('model/MemberListHandler.php');
+
+//controll
 require_once('controller/ViewController.php');
-require_once('controller/MemberController.php');
+require_once('controller/UserController.php');
+
+
+//create model objects
+$memberHandler = new \Model\MemberListHandler();
 
 //create view objects
 $layoutView = new \View\LayoutView();
 $addMemberView = new \View\AddMemberView();
+$listMembersView = new \View\ListMembersView($memberHandler);
 
-$member = new \Model\Member();
+//create controller objects
+$userController = new \Controller\UserController($memberHandler, $addMemberView);
+$viewController = new \Controller\ViewController($layoutView, $addMemberView, $listMembersView);
 
-// create controller objects
-$viewController = new \Controller\ChangeView($layoutView, $addMemberView);
-$memberController = new \Controller\ManageMember($member, $addMemberView);
-$memberController->createNewMember();
-
-$layoutView->renderView($memberController, $addMemberView);
-
-$viewController->renderHTMLView();
+//render view
+$layoutView->renderView($userController);
+$viewController->displayChoosenView();
