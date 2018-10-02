@@ -43,7 +43,4 @@ Class Member {
         file_put_contents($this->file, "");
         file_put_contents($this->file, $this->allMembers);
     }
-
-
-
 }
